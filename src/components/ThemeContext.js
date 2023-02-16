@@ -6,7 +6,7 @@ const themes = {
         color: 'black'
     },
     light: {
-        backgroundColor: 'white',
+        backgroundColor: '#a3c7d64f',
         color: 'black'
     }
 }
@@ -28,7 +28,7 @@ const cards = {
         color: 'white'
     },
     light: {
-        backgroundColor: '#fff2f2',
+        backgroundColor: '#a5c2d1d4',
         color: 'black'
     }
 }
