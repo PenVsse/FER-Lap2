@@ -75,6 +75,7 @@ import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import App from '../../App';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -226,11 +227,13 @@ export default function Navigation() {
                                 </Badge>
                             </IconButton>
                         </Nav.Link>
-                        <IconButton size="small" color="inherit" sx={{ marginRight: '20px' }}>
-                            <Badge color="error">
-                                <InfoOutlinedIcon /> &nbsp; About
-                            </Badge>
-                        </IconButton>
+                        <Nav.Link href='/about'>
+                            <IconButton size="small" color="inherit" sx={{ marginRight: '20px' }}>
+                                <Badge color="error">
+                                    <InfoOutlinedIcon /> &nbsp; About
+                                </Badge>
+                            </IconButton>
+                        </Nav.Link>
                         <IconButton size="small" color="inherit" sx={{ marginRight: '20px' }} >
                             <Badge color="error">
                                 <ArticleOutlinedIcon /> &nbsp;  News
@@ -243,8 +246,6 @@ export default function Navigation() {
                                 </Badge>
                             </IconButton>
                         </Nav.Link>
-
-
                     </Box>
                     <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
                         <IconButton

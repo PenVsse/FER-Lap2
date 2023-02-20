@@ -39,15 +39,18 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import { useParams } from 'react-router-dom';
 import { Films } from '../../share/ListOfPlayers';
-
+import { useState } from 'react';
+import SlideshowIcon from '@mui/icons-material/Slideshow';
+import Modal from '../Modal/Modal';
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
 });
-
 export default function FilmDetail() {
+    const [isOpen, setIsOpen] = useState(false);
+
     const userName = useParams();
     const film = Films.find(obj => {
         return obj.id == userName.id;
@@ -59,14 +62,22 @@ export default function FilmDetail() {
                 p: 2,
                 margin: 'auto',
                 marginBottom: '20px',
+                marginTop: '20px',
                 maxWidth: 700,
                 flexGrow: 1,
             }}
         >
             <Grid container spacing={2}>
                 <Grid item>
-                    <Img alt="" src={`../${film.img}`} sx={{ maxHeight: '500px', width: '700px' }} />
+                    <Img alt="" src={`../${film.img}`} sx={{ height: '340px', width: '700px' }} />
+                    <a onClick={() => setIsOpen(true)} className="" >
+                        <SlideshowIcon sx={{
+                            marginLeft: '95%'
+                        }}></SlideshowIcon>
+                    </a>
                 </Grid>
+
+
                 <Grid item xs={12} container>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs>
@@ -94,6 +105,10 @@ export default function FilmDetail() {
                     </Typography>
                 </Grid>
             </Grid>
+            {isOpen && <Modal setIsOpen={setIsOpen} film={film} />}
+
+
         </Paper>
     );
+
 }
